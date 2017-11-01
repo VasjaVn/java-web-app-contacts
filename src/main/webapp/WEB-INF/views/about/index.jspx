@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:spring="http://www.springframework.org/tags"
+     version="2.0">
+
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="label_about_project_info" var="labelProjectInfo"/>
+
+    <spring:url value="/resources/images/about/photoMe.jpg" var="photoMeUrl"/>
+    <spring:url value="/resources/images/about/screenshot.jpg" var="photoScreenshotUrl"/>
+    <spring:url value="/about/downloadApkFile" var="downloadApkFileUrl"/>
+
+    <spring:url value="https://github.com/VasjaVn/java-web-app-contacts" var="javaGitHubUrl"/>
+    <spring:url value="https://github.com/VasjaVn/android-app-client-contact" var="androidGitHubUrl"/>
+
+    <h1>${labelProjectInfo}</h1>
+
+    <img src="${photoMeUrl}" alt="photoMe" align="left" vspace="5" hspace="5"/>
+
+    <h3>Як працювати з Веб-додатком:</h3>
+    <p>Щоб меню адміністратора стало доступним введіть <b>ім'я користувача</b>: <i><b>admin</b></i> та <b>пароль</b>: <i><b>admin</b></i>.</p>
+    <p>Після того як Ви залогінитесь, Вам буде доступне меню адміністатора і Ви зможете додавати нові контакти. А також Ви зможете редагувати та удяляти контакти.</p>
+    <p>В іншому випадку Ви зможете тільки переглядати інформацію про контакти.</p>
+
+    <h3>Даний проект був написаний з використанням наступних технологій:</h3>
+    <p>- <b>Spring Framework</b>: Spring Web MVC, Spring Security, Spring Data JPA</p>
+    <p>- <b>ORM Framework</b>: Hibernate/JPA</p>
+    <p>- <b>JavaScript бібліотеки</b>: jQuery, jQuery UI</p>
+    <p>- <b>JavaScript плагіни</b>: CKEditor, jqGrid</p>
+    <p>- <b>HTML/CSS</b></p>
+    <p>Даний проект використовує базу данних <b>Posgresql</b>.</p>
+    <p>Даний проект використовує шаблонизатор <b>Apache Tiles</b>.</p>
+    <p>
+    Був написаний RESTful Веб-сервіс, також був написаний мобільний додаток на
+    <b>Android</b>, який використовує даний веб-сервіс. Данні передаються у форматі <b>JSON</b>. Загрузити мобільний додаток, можна <a href="${downloadApkFileUrl}">тут</a>.
+    Побачити скрин-шот мобільного додатку в дії можна <a class="screenshot" href="#" >тут</a>.
+    </p>
+
+    <h3>Source code on GitHub:</h3>
+    <p>Силка <a target="_blank" href="${javaGitHubUrl}">даного проекту</a> на GitHub.</p>
+    <p>Силка <a target="_blank" href="${androidGitHubUrl}">андроид проекту</a> на GitHub.</p>
+
+    <div class="screenshot">
+       <img src="${photoScreenshotUrl}" alt="photo screenshot" />
+    </div>
+
+    <script type="text/javascript">
+        $("a.screenshot").click(function() {
+            $('div.screenshot').dialog({
+                                          title: 'Cкрин-шот мобільного додатку',
+                                          width:'auto',
+                                          height:'auto'
+                                       });
+        });
+    </script>
+</div>

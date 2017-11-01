@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<div id="header" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:sec="http://www.springframework.org/security/tags"
+     version="2.0">
+
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+
+    <spring:message code="header_text" var="headerText"/>
+    <spring:message code="label_logout" var="labelLogout"/>
+    <spring:message code="label_welcome" var="labelWelcome"/>
+    <spring:message code="label_menu_item_en_US" var="labelMenuItemEnUs"/>
+    <spring:message code="label_menu_item_uk_UA" var="labelMenuItemUkUa"/>
+
+    <spring:url var="logoutUrl" value="/j_spring_security_logout" />
+    <spring:url value="/contacts" var="contactsUrl"/>
+
+    <div id="logo"><jsp:text/></div>
+
+    <div id="appname">
+        <h1>${headerText}</h1>
+    </div>
+
+    <div id="lang-user">
+        <div id="language">
+            <a href="${contactsUrl}?lang=en_US">${labelMenuItemEnUs}</a> |
+            <a href="${contactsUrl}?lang=uk_UA">${labelMenuItemUkUa}</a>
+        </div>
+        <div id="userinfo">
+            <sec:authorize access="isAuthenticated()">
+                ${labelWelcome}: <sec:authentication property="principal.username"/>
+                <br/>
+                <a href="${logoutUrl}">${labelLogout}</a>
+            </sec:authorize>
+        </div>
+    </div>
+</div>

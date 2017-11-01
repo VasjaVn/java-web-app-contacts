@@ -1,0 +1,263 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.contacts</groupId>
+  <artifactId>contacts</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>contacts Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.source.version>1.7</project.build.source.version>
+    <project.build.target.version>1.7</project.build.target.version>
+    <spring.version>4.0.2.RELEASE</spring.version>
+    <spring.data.jpa.version>1.5.0.RELEASE</spring.data.jpa.version>
+    <spring.security.version>3.2.1.RELEASE</spring.security.version>
+    <hibernate.entityManager.version>4.3.5.Final</hibernate.entityManager.version>
+    <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
+    <hibernate.validator.version>5.1.0.Final</hibernate.validator.version>
+    <validation.api.jsr349.version>1.1.0.Final</validation.api.jsr349.version>
+    <joda.time.version>2.2</joda.time.version>
+    <joda.time.jsptags.version>1.1.1</joda.time.jsptags.version>
+    <usertype.version>3.0.0.GA</usertype.version>
+    <postgresql.jdbcDriver.version>9.2-1002-jdbc4</postgresql.jdbcDriver.version>
+    <h2.version>1.3.172</h2.version>
+    <jstl.version>1.2</jstl.version>
+    <tiles.version>3.0.4</tiles.version>
+    <javaee.web.api.version>6.0</javaee.web.api.version>
+    <jackson.version>1.9.13</jackson.version>
+    <commons.io.version>2.4</commons.io.version>
+    <google.guava.version>14.0.1</google.guava.version>
+    <slf4j.log4j.version>1.7.6</slf4j.log4j.version>
+    <junit.version>4.12</junit.version>
+    <mockito.all.version>1.9.5</mockito.all.version>
+  </properties>
+
+  <dependencies>
+
+    <!-- SPRING-WEB-MVC -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- SPRING-DATA-JPA -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>${spring.data.jpa.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aop</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- SPRING-SECURITY-CORE -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${spring.security.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aop</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- SPRING-SECURITY-WEB -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${spring.security.version}</version>
+    </dependency>
+
+    <!-- SPRING-SECURITY-CONFIG -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${spring.security.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aop</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- SPRING-SECURITY-TAGLIBS -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-taglibs</artifactId>
+      <version>${spring.security.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aop</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- VALIDATION-API-JSR349 -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>${validation.api.jsr349.version}</version>
+    </dependency>
+
+    <!-- HIBERNATE-VALIDATOR -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernate.validator.version}</version>
+    </dependency>
+
+    <!-- HIBERNATE-ENTITYMANAGER -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>${hibernate.entityManager.version}</version>
+    </dependency>
+
+    <!-- HIBERNATE-JPA -->
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.1-api</artifactId>
+      <version>${hibernate.jpa.version}</version>
+    </dependency>
+
+    <!-- POSTGRESQL-DATABASE -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql.jdbcDriver.version}</version>
+    </dependency>
+
+    <!-- H2-DATABASE -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${h2.version}</version>
+    </dependency>
+
+    <!-- JODA-TIME -->
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>${joda.time.version}</version>
+    </dependency>
+
+    <!-- JODA-TIME-JSPTAGS -->
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time-jsptags</artifactId>
+      <version>${joda.time.jsptags.version}</version>
+    </dependency>
+
+    <!-- JADIRA-USERTYPE -->
+    <dependency>
+      <groupId>org.jadira.usertype</groupId>
+      <artifactId>usertype.core</artifactId>
+      <version>${usertype.version}</version>
+    </dependency>
+
+    <!-- GOOGLE-GUAVA -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${google.guava.version}</version>
+    </dependency>
+
+    <!-- SLF4J-LOG4J -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.log4j.version}</version>
+    </dependency>
+
+    <!-- JSTL -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
+
+    <!-- APACHE-TILES-CORE -->
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-core</artifactId>
+      <version>${tiles.version}</version>
+    </dependency>
+
+    <!-- APACHE-TILES-JSP -->
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-jsp</artifactId>
+      <version>${tiles.version}</version>
+    </dependency>
+
+    <!-- JAVAEE-WEB-API -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-web-api</artifactId>
+      <version>${javaee.web.api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- JACKSON-MAPPER-LGPL -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-lgpl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <!-- COMMONS-IO -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons.io.version}</version>
+    </dependency>
+
+    <!-- JUNIT -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- MOCKITO-ALL -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>${mockito.all.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>project</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <source>${project.build.source.version}</source>
+          <target>${project.build.target.version}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

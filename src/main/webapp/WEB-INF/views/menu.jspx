@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<div id="menu" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags" version="2.0">
+
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+
+    <spring:message code="label_menu_item_contacts" var="labelMenuItemContacts"/>
+    <spring:message code="label_menu_item_about_project" var="labelMenuItemAboutProject"/>
+
+    <spring:url value="/contacts" var="contactsUrl"/>
+    <spring:url value="/about" var="aboutProjectUrl"/>
+
+    <a href="${contactsUrl}">${labelMenuItemContacts}</a> |
+    <a href="${aboutProjectUrl}">${labelMenuItemAboutProject}</a>
+</div>

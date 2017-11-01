@@ -1,0 +1,9 @@
+.error {
+    font-size: 16px;
+    color: #f00;
+}
+
+.success {
+    font-size: 16px;
+    color: #0f0;
+}
